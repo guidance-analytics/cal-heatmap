@@ -1,7 +1,7 @@
 import DomainCoordinates from './DomainCoordinates';
 import type CalHeatmap from '../CalHeatmap';
 import type { ScrollDirection } from '../constant';
-import type { Dimensions } from '../index';
+import type { Dimensions } from '../CalHeatmap';
 export default class DomainPainter {
     #private;
     calendar: CalHeatmap;

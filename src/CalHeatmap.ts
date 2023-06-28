@@ -19,14 +19,79 @@ import './cal-heatmap.scss';
 import TemplateCollection from './TemplateCollection';
 
 import type { OptionsType } from './options/Options';
-import type {
-  Template,
-  Dimensions,
-  PluginDefinition,
-  Timestamp,
-} from './index';
 
 import { ScrollDirection } from './constant';
+
+export type Timestamp = number;
+export type DomainType =
+  | 'year'
+  | 'month'
+  | 'week'
+  | 'xDay'
+  | 'ghDay'
+  | 'day'
+  | 'hour'
+  | 'minute';
+
+export type DeepPartial<T> = T extends object
+  ? {
+    [P in keyof T]?: DeepPartial<T[P]>;
+  }
+  : T;
+
+// Template
+
+export type Template = {
+  (dateHelper: DateHelper, options: OptionsType): TemplateResult;
+};
+
+export type TemplateResult = {
+  name: string;
+  parent?: string;
+  allowedDomainType: DomainType[];
+  rowsCount: (ts: Timestamp) => number;
+  columnsCount: (ts: Timestamp) => number;
+  mapping: (
+    startTimestamp: Timestamp,
+    endTimestamp: Timestamp,
+  ) => SubDomain[];
+  extractUnit: (ts: Timestamp) => Timestamp;
+};
+
+export type SubDomain = {
+  t: Timestamp;
+  x: number;
+  y: number;
+  v?: number | string | null;
+};
+
+export type Dimensions = {
+  width: number;
+  height: number;
+};
+
+// Plugin
+
+export interface IPlugin {
+  name: string;
+  calendar: CalHeatmap;
+  options: PluginOptions;
+  root: any;
+
+  setup: (options?: PluginOptions) => void;
+  paint: () => Promise<unknown>;
+  destroy: () => Promise<unknown>;
+}
+export interface IPluginContructor {
+  new (calendar?: CalHeatmap): IPlugin;
+}
+
+export interface PluginOptions {
+  position?: 'top' | 'right' | 'bottom' | 'left';
+  dimensions?: Dimensions;
+  key?: string;
+}
+export type PluginDefinition = [IPluginContructor, Partial<PluginOptions>?];
 
 export default class CalHeatmap {
   static VERSION = VERSION;
@@ -96,7 +161,7 @@ export default class CalHeatmap {
    * tasks settle, whether resolved or rejected.
    */
   async paint(
-    options?: CalHeatmap.DeepPartial<OptionsType>,
+    options?: DeepPartial<OptionsType>,
     plugins?: PluginDefinition[] | PluginDefinition,
   ): Promise<unknown> {
     this.options.init(options);

@@ -1,12 +1,12 @@
 import isEqual from 'lodash-es/isEqual';
 
 import type CalHeatmap from '../CalHeatmap';
-import {
+import type {
   PluginDefinition,
   PluginOptions,
   IPluginContructor,
   IPlugin,
-} from '../index';
+} from '../CalHeatmap';
 
 type PluginSetting = {
   options?: PluginOptions;

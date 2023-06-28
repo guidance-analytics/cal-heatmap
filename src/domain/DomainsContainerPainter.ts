@@ -5,7 +5,7 @@ import SubDomainPainter from '../subDomain/SubDomainPainter';
 import { ScrollDirection } from '../constant';
 
 import type CalHeatmap from '../CalHeatmap';
-import type { Dimensions } from '../index';
+import type { Dimensions } from '../CalHeatmap';
 
 const BASE_SELECTOR = '.ch-domain-container';
 const TRANSITION_CLASSNAME = 'in-transition';

@@ -7,7 +7,7 @@ import {
 import { DOMAIN_FORMAT } from '../calendar/DomainCollection';
 
 import type CalHeatmap from '../CalHeatmap';
-import type { Timestamp } from '../index';
+import type { Timestamp } from '../CalHeatmap';
 
 const DEFAULT_SELECTOR = '.ch-domain-text';
 

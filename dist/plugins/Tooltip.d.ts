@@ -1,6 +1,6 @@
 import type dayjs from 'dayjs';
 import type CalHeatmap from '../CalHeatmap';
-import type { IPlugin, PluginOptions, Timestamp } from '../index';
+import type { IPlugin, PluginOptions, Timestamp } from '../CalHeatmap';
 interface PopperOptions {
     placement: any;
     modifiers: any[];

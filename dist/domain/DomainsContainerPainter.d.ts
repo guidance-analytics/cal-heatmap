@@ -3,7 +3,7 @@ import DomainLabelPainter from './DomainLabelPainter';
 import SubDomainPainter from '../subDomain/SubDomainPainter';
 import { ScrollDirection } from '../constant';
 import type CalHeatmap from '../CalHeatmap';
-import type { Dimensions } from '../index';
+import type { Dimensions } from '../CalHeatmap';
 declare class DomainsContainerPainter {
     #private;
     calendar: CalHeatmap;

@@ -16,7 +16,7 @@
   "rules": {
     "no-prototype-builtins": "off",
     "operator-linebreak": ["error", "after"],
-    "max-len": ["error", { "code": 80 }]
+    "max-len": ["error", { "code": 100 }]
   },
   "plugins": ["jest", "@typescript-eslint"],
   "ignorePatterns": ["test/coverage/**/*.js"],

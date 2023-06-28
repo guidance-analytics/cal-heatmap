@@ -1,5 +1,5 @@
 import type { DataOptions } from './options/Options';
-import type { Timestamp } from './index';
+import type { Timestamp } from './CalHeatmap';
 import type CalHeatmap from './CalHeatmap';
 export default class DataFetcher {
     #private;

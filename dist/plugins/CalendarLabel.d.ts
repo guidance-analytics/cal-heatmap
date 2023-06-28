@@ -1,5 +1,5 @@
 import type CalHeatmap from '../CalHeatmap';
-import type { IPlugin, PluginOptions } from '../index';
+import type { IPlugin, PluginOptions } from '../CalHeatmap';
 import type { TextAlign, Padding } from '../options/Options';
 type ComputedOptions = {
     radius: number;

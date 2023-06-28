@@ -1,3 +1,3 @@
-import type { Template } from '../index';
+import type { Template } from '../CalHeatmap';
 declare const minuteTemplate: Template;
 export default minuteTemplate;

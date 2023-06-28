@@ -2,7 +2,7 @@ import DomainsContainerPainter from '../domain/DomainsContainerPainter';
 import PluginPainter from '../plugins/PluginPainter';
 import type CalHeatmap from '../CalHeatmap';
 import { ScrollDirection } from '../constant';
-import type { Dimensions } from '../index';
+import type { Dimensions } from '../CalHeatmap';
 export declare const DEFAULT_SELECTOR = ".ch-container";
 export default class CalendarPainter {
     #private;

@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import type { PluginFunc } from 'dayjs';
 import type { OptionsType } from '../options/Options';
-import type { Timestamp, DomainType } from '../index';
+import type { Timestamp, DomainType } from '../CalHeatmap';
 export default class DateHelper {
     locale: OptionsType['date']['locale'];
     timezone: string;

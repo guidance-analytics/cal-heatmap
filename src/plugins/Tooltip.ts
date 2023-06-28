@@ -3,7 +3,7 @@ import { createPopper } from '@popperjs/core';
 import type dayjs from 'dayjs';
 import type { VirtualElement, StrictModifiers } from '@popperjs/core';
 import type CalHeatmap from '../CalHeatmap';
-import type { IPlugin, PluginOptions, Timestamp } from '../index';
+import type { IPlugin, PluginOptions, Timestamp } from '../CalHeatmap';
 
 const DEFAULT_SELECTOR = '#ch-tooltip';
 

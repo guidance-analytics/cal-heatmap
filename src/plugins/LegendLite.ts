@@ -7,7 +7,7 @@ import {
 } from '../subDomain/SubDomainPainter';
 
 import type CalHeatmap from '../CalHeatmap';
-import type { IPlugin, PluginOptions } from '../index';
+import type { IPlugin, PluginOptions } from '../CalHeatmap';
 import {
   OPTIONS_DEFAULT_SUBDOMAIN_WIDTH,
   OPTIONS_DEFAULT_SUBDOMAIN_HEIGHT,

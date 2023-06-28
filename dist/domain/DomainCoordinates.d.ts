@@ -2,7 +2,7 @@ import { ScrollDirection } from '../constant';
 import type CalHeatmap from '../CalHeatmap';
 import type DomainPainter from './DomainPainter';
 import type DomainCollection from '../calendar/DomainCollection';
-import type { SubDomain, Dimensions, Timestamp } from '../index';
+import type { SubDomain, Dimensions, Timestamp } from '../CalHeatmap';
 type SubDomainWithCoordinates = Required<SubDomain> & {
     pre_x: number;
     pre_y: number;

@@ -1,5 +1,5 @@
 import type { OptionsType, DomainOptions } from '../options/Options';
-import type { Template, DomainType } from '../index';
+import type { Template, DomainType } from '../CalHeatmap';
 
 const dayTemplate: Template = (
   DateHelper,

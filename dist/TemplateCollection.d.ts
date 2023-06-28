@@ -1,5 +1,5 @@
 import type Options from './options/Options';
-import type { Template, TemplateResult } from './index';
+import type { Template, TemplateResult } from './CalHeatmap';
 import type DateHelper from './helpers/DateHelper';
 export default class TemplateCollection {
     dateHelper: DateHelper;

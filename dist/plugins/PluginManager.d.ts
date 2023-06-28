@@ -1,5 +1,5 @@
 import type CalHeatmap from '../CalHeatmap';
-import { PluginDefinition, PluginOptions, IPlugin } from '../index';
+import type { PluginDefinition, PluginOptions, IPlugin } from '../CalHeatmap';
 type PluginSetting = {
     options?: PluginOptions;
     dirty: boolean;

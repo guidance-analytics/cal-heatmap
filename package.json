@@ -70,7 +70,7 @@
   "scripts": {
     "format": "npx prettier-eslint --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "lint": "npx eslint src/ test/",
-    "build": "rm -rf dist/* && tsc && cp src/index.d.ts dist/index.d.ts",
+    "build": "rm -rf dist/* && tsc",
     "dev": "rollup --config -w",
     "test": "node --experimental-vm-modules ./node_modules/.bin/jest test/",
     "test:e2e": "node --experimental-vm-modules ./node_modules/.bin/jest -c jest-e2e.config.mjs test/",

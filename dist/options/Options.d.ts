@@ -1,5 +1,5 @@
 import type { Ls } from 'dayjs';
-import type { DomainType, Timestamp } from '../index';
+import type { DomainType, Timestamp, DeepPartial } from '../CalHeatmap';
 type SortOrder = 'asc' | 'desc';
 export type TextAlign = 'start' | 'middle' | 'end';
 export type Padding = [number, number, number, number];
@@ -101,7 +101,7 @@ export default class Options {
      * @return {boolean} Whether the option have been changed
      */
     set(key: string, value: any): boolean;
-    init(opts?: CalHeatmap.DeepPartial<OptionsType>): void;
+    init(opts?: DeepPartial<OptionsType>): void;
     initScale(): void;
 }
 export {};

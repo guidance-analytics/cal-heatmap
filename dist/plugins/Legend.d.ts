@@ -1,5 +1,5 @@
 import type CalHeatmap from '../CalHeatmap';
-import type { IPlugin, PluginOptions } from '../index';
+import type { IPlugin, PluginOptions } from '../CalHeatmap';
 interface LegendOptions extends PluginOptions {
     enabled: boolean;
     itemSelector: string | null;
