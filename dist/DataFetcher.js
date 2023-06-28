@@ -14,7 +14,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
 };
 var _DataFetcher_instances, _DataFetcher_fetch;
 import { json, csv, dsv, text, } from 'd3-fetch';
-class DataFetcher {
+export default class DataFetcher {
     constructor(calendar) {
         _DataFetcher_instances.add(this);
         this.calendar = calendar;
@@ -70,4 +70,3 @@ _DataFetcher_instances = new WeakSet(), _DataFetcher_fetch = function _DataFetch
             });
     }
 };
-export default DataFetcher;

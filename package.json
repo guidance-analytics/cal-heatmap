@@ -9,34 +9,8 @@
     "heat map"
   ],
   "type": "module",
-  "exports": {
-    ".": {
-      "import": "./dist/cal-heatmap.esm.js",
-      "require": "./dist/cal-heatmap.js"
-    },
-    "./package.json": "./package.json",
-    "./cal-heatmap.css": "./dist/cal-heatmap.css",
-    "./plugins/Tooltip": {
-      "import": "./dist/plugins/Tooltip.esm.js",
-      "require": "./dist/plugins/Tooltip.js"
-    },
-    "./plugins/Legend": {
-      "import": "./dist/plugins/Legend.esm.js",
-      "require": "./dist/plugins/Legend.js"
-    },
-    "./plugins/LegendLite": {
-      "import": "./dist/plugins/LegendLite.esm.js",
-      "require": "./dist/plugins/LegendLite.js"
-    },
-    "./plugins/CalendarLabel": {
-      "import": "./dist/plugins/CalendarLabel.esm.js",
-      "require": "./dist/plugins/CalendarLabel.js"
-    }
-  },
-  "directories": {
-    "test": "test"
-  },
-  "types": "./dist/src/",
+  "main": "./dist/CalHeatmap.js",
+  "types": "./dist/",
   "node": ">=14.16",
   "browserslist": "last 2 versions, not dead, > 0.2%",
   "dependencies": {
@@ -96,7 +70,7 @@
   "scripts": {
     "format": "npx prettier-eslint --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "lint": "npx eslint src/ test/",
-    "build": "rm -rf dist/* && rollup -c && cp src/index.d.ts dist/src/index.d.ts",
+    "build": "rm -rf dist/* && tsc && cp src/index.d.ts dist/index.d.ts",
     "dev": "rollup --config -w",
     "test": "node --experimental-vm-modules ./node_modules/.bin/jest test/",
     "test:e2e": "node --experimental-vm-modules ./node_modules/.bin/jest -c jest-e2e.config.mjs test/",

@@ -5,7 +5,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
 };
 var _Navigator_instances, _Navigator_isDomainBoundaryReached, _Navigator_setDomainsBoundaryReached;
 import { ScrollDirection } from '../constant';
-class Navigator {
+export default class Navigator {
     constructor(calendar) {
         _Navigator_instances.add(this);
         this.calendar = calendar;
@@ -98,4 +98,3 @@ _Navigator_instances = new WeakSet(), _Navigator_isDomainBoundaryReached = funct
         this.maxDomainReached = reached;
     }
 };
-export default Navigator;

@@ -6,7 +6,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
 var _DomainPainter_instances, _DomainPainter_getClassName;
 import DomainCoordinates from './DomainCoordinates';
 const DEFAULT_SELECTOR = '.ch-domain';
-class DomainPainter {
+export default class DomainPainter {
     constructor(calendar) {
         _DomainPainter_instances.add(this);
         this.calendar = calendar;
@@ -89,4 +89,3 @@ _DomainPainter_instances = new WeakSet(), _DomainPainter_getClassName = function
     }
     return classname;
 };
-export default DomainPainter;

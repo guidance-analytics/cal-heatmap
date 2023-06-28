@@ -8,7 +8,7 @@ import { Position } from '../constant';
 import { isVertical, verticalPadding, horizontalPadding, } from '../helpers/PositionHelper';
 import { DOMAIN_FORMAT } from '../calendar/DomainCollection';
 const DEFAULT_SELECTOR = '.ch-domain-text';
-class DomainLabelPainter {
+export default class DomainLabelPainter {
     constructor(calendar) {
         _DomainLabelPainter_instances.add(this);
         this.calendar = calendar;
@@ -175,4 +175,3 @@ _DomainLabelPainter_instances = new WeakSet(), _DomainLabelPainter_textVerticalA
         default:
     }
 };
-export default DomainLabelPainter;

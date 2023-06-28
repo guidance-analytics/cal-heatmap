@@ -21,7 +21,7 @@ const defaultOptions = {
     radius: OPTIONS_DEFAULT_SUBDOMAIN_RADIUS,
     includeBlank: false,
 };
-class LegendLite {
+export default class LegendLite {
     constructor(calendar) {
         _LegendLite_instances.add(this);
         this.name = 'LegendLite';
@@ -96,4 +96,3 @@ _LegendLite_instances = new WeakSet(), _LegendLite_buildLegend = function _Legen
         applyScaleStyle(element, scale, this.calendar.options.options.scale);
     });
 };
-export default LegendLite;

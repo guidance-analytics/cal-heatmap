@@ -7,7 +7,7 @@ var _SubDomainPainter_instances, _SubDomainPainter_setPositions, _SubDomainPaint
 import { Position } from '../constant';
 export const DEFAULT_SELECTOR = '.ch-subdomain';
 const HIGHLIGHT_CLASSNAME = 'highlight';
-class SubDomainPainter {
+export default class SubDomainPainter {
     constructor(calendar) {
         _SubDomainPainter_instances.add(this);
         this.calendar = calendar;
@@ -130,4 +130,3 @@ _SubDomainPainter_instances = new WeakSet(), _SubDomainPainter_setPositions = fu
 }, _SubDomainPainter_getY = function _SubDomainPainter_getY(d) {
     return __classPrivateFieldGet(this, _SubDomainPainter_instances, "m", _SubDomainPainter_getCoordinates).call(this, 'y', d);
 };
-export default SubDomainPainter;

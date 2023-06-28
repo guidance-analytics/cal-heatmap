@@ -39,7 +39,7 @@ const virtualElement = {
         };
     },
 };
-class Tooltip {
+export default class Tooltip {
     constructor(calendar) {
         _Tooltip_instances.add(this);
         this.name = 'Tooltip';
@@ -121,4 +121,3 @@ _Tooltip_instances = new WeakSet(), _Tooltip_show = function _Tooltip_show(e, ti
             { name: 'eventListeners', enabled: false },
         ] })));
 };
-export default Tooltip;

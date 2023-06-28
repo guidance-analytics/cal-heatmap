@@ -6,7 +6,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
 var _DomainCoordinates_instances, _DomainCoordinates_getWidth, _DomainCoordinates_getHeight;
 import { ScrollDirection } from '../constant';
 import { horizontalPadding, verticalPadding } from '../helpers/PositionHelper';
-class DomainCoordinates {
+export default class DomainCoordinates {
     constructor(calendar, domainPainter) {
         _DomainCoordinates_instances.add(this);
         this.calendar = calendar;
@@ -78,4 +78,3 @@ _DomainCoordinates_instances = new WeakSet(), _DomainCoordinates_getWidth = func
         (verticalOrientation ? domain.gutter : 0) +
         x.domainVerticalLabelHeight);
 };
-export default DomainCoordinates;

@@ -15,7 +15,7 @@ export const DOMAIN_FORMAT = {
     hour: 'HH:00',
     minute: 'HH:mm',
 };
-class DomainCollection {
+export default class DomainCollection {
     constructor(dateHelper, interval, start, range, excludeEnd = false) {
         _DomainCollection_instances.add(this);
         this.collection = new Map();
@@ -184,4 +184,3 @@ _DomainCollection_instances = new WeakSet(), _DomainCollection_setSubDomainValue
     this.max = keys[keys.length - 1];
     return this.keys;
 };
-export default DomainCollection;

@@ -17,7 +17,7 @@ const defaultOptions = {
     text: () => [],
     padding: [0, 0, 0, 0],
 };
-class CalendarLabel {
+export default class CalendarLabel {
     constructor(calendar) {
         var _a, _b;
         _CalendarLabel_instances.add(this);
@@ -150,4 +150,3 @@ _CalendarLabel_instances = new WeakSet(), _CalendarLabel_buildComputedOptions = 
     }
     return padding[Position.TOP] + (height + gutter) * index;
 };
-export default CalendarLabel;

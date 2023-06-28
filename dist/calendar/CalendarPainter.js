@@ -9,7 +9,7 @@ import DomainsContainerPainter from '../domain/DomainsContainerPainter';
 import PluginPainter from '../plugins/PluginPainter';
 import { ScrollDirection } from '../constant';
 export const DEFAULT_SELECTOR = '.ch-container';
-class CalendarPainter {
+export default class CalendarPainter {
     constructor(calendar) {
         _CalendarPainter_instances.add(this);
         this.calendar = calendar;
@@ -80,4 +80,3 @@ _CalendarPainter_instances = new WeakSet(), _CalendarPainter_getHeight = functio
         height: newHeight,
     };
 };
-export default CalendarPainter;
