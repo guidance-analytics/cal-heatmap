@@ -36,7 +36,7 @@
   "directories": {
     "test": "test"
   },
-  "types": "./src/index.d.ts",
+  "types": "./dist/src/",
   "node": ">=14.16",
   "browserslist": "last 2 versions, not dead, > 0.2%",
   "dependencies": {
@@ -96,7 +96,7 @@
   "scripts": {
     "format": "npx prettier-eslint --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "lint": "npx eslint src/ test/",
-    "build": "rm -rf dist/* && rollup -c",
+    "build": "rm -rf dist/* && rollup -c && cp src/index.d.ts dist/src/index.d.ts",
     "dev": "rollup --config -w",
     "test": "node --experimental-vm-modules ./node_modules/.bin/jest test/",
     "test:e2e": "node --experimental-vm-modules ./node_modules/.bin/jest -c jest-e2e.config.mjs test/",
@@ -120,7 +120,6 @@
     "Visualization"
   ],
   "files": [
-    "src",
     "dist"
   ],
   "config": {

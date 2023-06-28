@@ -112,7 +112,7 @@ const exportConfig = (input, name, output, options = {}) => {
       ],
       plugins: [...basePlugins, terser()],
       ...options,
-    },
+    }
   ];
 };
 
