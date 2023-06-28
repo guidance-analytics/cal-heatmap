@@ -9,7 +9,6 @@ import DataFetcher from './DataFetcher';
 import DomainCollection from './calendar/DomainCollection';
 import DateHelper from './helpers/DateHelper';
 import PluginManager from './plugins/PluginManager';
-import './cal-heatmap.scss';
 import TemplateCollection from './TemplateCollection';
 import type { OptionsType } from './options/Options';
 export type Timestamp = number;

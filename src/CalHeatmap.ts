@@ -14,8 +14,6 @@ import validate from './options/OptionsValidator';
 import PluginManager from './plugins/PluginManager';
 import VERSION from './version';
 
-import './cal-heatmap.scss';
-
 import TemplateCollection from './TemplateCollection';
 
 import type { OptionsType } from './options/Options';

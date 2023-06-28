@@ -1,6 +1,5 @@
-import type { SubDomain } from '../CalHeatmap';
 import type { DataOptions, DataGroupType, DataRecord } from '../options/Options';
-import { DomainType, Timestamp } from '../CalHeatmap';
+import type { SubDomain, DomainType, Timestamp } from '../CalHeatmap';
 import type DateHelper from '../helpers/DateHelper';
 export declare const DOMAIN_FORMAT: Record<DomainType, string>;
 type GroupedRecords = Map<Timestamp, {
