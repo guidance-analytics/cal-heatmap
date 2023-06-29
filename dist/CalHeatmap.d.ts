@@ -11,6 +11,7 @@ import DateHelper from './helpers/DateHelper';
 import PluginManager from './plugins/PluginManager';
 import TemplateCollection from './TemplateCollection';
 import type { OptionsType } from './options/Options';
+import 'd3-transition';
 export type Timestamp = number;
 export type DomainType = 'year' | 'month' | 'week' | 'xDay' | 'ghDay' | 'day' | 'hour' | 'minute';
 export type DeepPartial<T> = T extends object ? {

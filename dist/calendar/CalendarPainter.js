@@ -22,11 +22,10 @@ export default class CalendarPainter {
         this.pluginPainter = new PluginPainter(calendar);
     }
     setup() {
-        const { itemSelector, theme } = this.calendar.options.options;
+        const { itemSelector } = this.calendar.options.options;
         if (!this.root) {
             this.root = select(itemSelector)
                 .append('svg')
-                .attr('data-theme', theme)
                 .attr('class', DEFAULT_SELECTOR.slice(1));
             this.domainsContainerPainter.setup();
         }

@@ -3,7 +3,7 @@ import isEqual from 'lodash-es/isEqual';
 import has from 'lodash-es/has';
 import get from 'lodash-es/get';
 import set from 'lodash-es/set';
-import { OPTIONS_DEFAULT_DOMAIN_TYPE, OPTIONS_DEFAULT_SUBDOMAIN_TYPE, OPTIONS_DEFAULT_SUBDOMAIN_WIDTH, OPTIONS_DEFAULT_SUBDOMAIN_HEIGHT, OPTIONS_DEFAULT_SUBDOMAIN_GUTTER, OPTIONS_DEFAULT_SUBDOMAIN_RADIUS, OPTIONS_DEFAULT_THEME, OPTIONS_DEFAULT_ANIMATION_DURATION, OPTIONS_DEFAULT_ITEM_SELECTOR, OPTIONS_DEFAULT_RANGE, SCALE_BASE_COLOR_SCHEME, SCALE_BASE_COLOR_TYPE, SCALE_BASE_COLOR_DOMAIN, OPTIONS_DEFAULT_LOCALE, } from '../constant';
+import { OPTIONS_DEFAULT_DOMAIN_TYPE, OPTIONS_DEFAULT_SUBDOMAIN_TYPE, OPTIONS_DEFAULT_SUBDOMAIN_WIDTH, OPTIONS_DEFAULT_SUBDOMAIN_HEIGHT, OPTIONS_DEFAULT_SUBDOMAIN_GUTTER, OPTIONS_DEFAULT_SUBDOMAIN_RADIUS, OPTIONS_DEFAULT_THEME, OPTIONS_DEFAULT_ANIMATION_DURATION, OPTIONS_DEFAULT_ITEM_SELECTOR, OPTIONS_DEFAULT_RANGE, OPTIONS_DEFAULT_LOCALE, } from '../constant';
 import OptionsPreProcessors from './OptionsPreProcessors';
 export default class Options {
     constructor(processors = OptionsPreProcessors) {
@@ -108,6 +108,7 @@ export default class Options {
                 defaultValue: null,
             },
             scale: undefined,
+            scaleDomain: [],
             // Animation duration, in ms
             animationDuration: OPTIONS_DEFAULT_ANIMATION_DURATION,
             // Theme mode: dark/light
@@ -142,9 +143,6 @@ export default class Options {
         Object.keys(this.preProcessors).forEach((key) => {
             set(options, key, get(this.preProcessors, key)(get(options, key)));
         });
-        if (typeof options.scale === 'undefined') {
-            this.initScale();
-        }
         options.x.domainVerticalLabelHeight = options.domain.label.height;
         // When the label is affecting the height
         if (options.domain.label.position === 'top' ||
@@ -160,14 +158,5 @@ export default class Options {
             options.x.domainVerticalLabelHeight = 0;
             options.x.domainHorizontalLabelWidth = 0;
         }
-    }
-    initScale() {
-        this.options.scale = {
-            color: {
-                scheme: SCALE_BASE_COLOR_SCHEME,
-                type: SCALE_BASE_COLOR_TYPE,
-                domain: SCALE_BASE_COLOR_DOMAIN,
-            },
-        };
     }
 }
