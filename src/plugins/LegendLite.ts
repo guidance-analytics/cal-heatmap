@@ -102,10 +102,8 @@ export default class LegendLite implements IPlugin {
       width, height, gutter, includeBlank,
     } = this.options;
 
-    const localRange: Array<number | null> = [
-      ...(this.calendar.options.options.scaleDomain ?? []),
-    ];
-    if (includeBlank || !localRange.length) {
+    const localRange: Array<number | null> = [...(this.calendar.options.options.scaleDomain ?? [])];
+    if (includeBlank) {
       localRange.unshift(null);
     }
 
@@ -148,7 +146,7 @@ export default class LegendLite implements IPlugin {
       .call((element: any) => {
         element.style(
           'fill',
-          (d: any) => (d !== undefined && d !== null ?
+          (d: any) => (d.v !== undefined && d.v !== null ?
             this.calendar.options.options.scale?.(d) ?? null :
             null),
         );

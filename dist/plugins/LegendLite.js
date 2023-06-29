@@ -64,10 +64,8 @@ _LegendLite_instances = new WeakSet(), _LegendLite_buildLegend = function _Legen
     var _a;
     const node = create('svg');
     const { width, height, gutter, includeBlank, } = this.options;
-    const localRange = [
-        ...((_a = this.calendar.options.options.scaleDomain) !== null && _a !== void 0 ? _a : []),
-    ];
-    if (includeBlank || !localRange.length) {
+    const localRange = [...((_a = this.calendar.options.options.scaleDomain) !== null && _a !== void 0 ? _a : [])];
+    if (includeBlank) {
         localRange.unshift(null);
     }
     node
@@ -96,7 +94,7 @@ _LegendLite_instances = new WeakSet(), _LegendLite_buildLegend = function _Legen
         .call((element) => {
         element.style('fill', (d) => {
             var _a, _b, _c;
-            return (d !== undefined && d !== null ?
+            return (d.v !== undefined && d.v !== null ?
                 (_c = (_b = (_a = this.calendar.options.options).scale) === null || _b === void 0 ? void 0 : _b.call(_a, d)) !== null && _c !== void 0 ? _c : null :
                 null);
         });
