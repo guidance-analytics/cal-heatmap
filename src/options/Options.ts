@@ -16,6 +16,9 @@ import {
   OPTIONS_DEFAULT_ANIMATION_DURATION,
   OPTIONS_DEFAULT_ITEM_SELECTOR,
   OPTIONS_DEFAULT_RANGE,
+  SCALE_BASE_COLOR_SCHEME,
+  SCALE_BASE_COLOR_TYPE,
+  SCALE_BASE_COLOR_DOMAIN,
   OPTIONS_DEFAULT_LOCALE,
 } from '../constant';
 
@@ -94,6 +97,21 @@ export type DataOptions = {
   defaultValue: null | number | string;
 };
 
+type ScaleOptions = {
+  opacity?: {
+    domain: number[];
+    type?: string;
+    baseColor: string;
+  };
+  color?: {
+    domain: number[];
+    scheme?: string;
+    range?: string[];
+    interpolate?: any;
+    type?: string;
+  };
+};
+
 export type OptionsType = {
   itemSelector: string;
   range: number;
@@ -101,8 +119,7 @@ export type OptionsType = {
   subDomain: SubDomainOptions;
   date: DateOptions;
   data: DataOptions;
-  scale?: (input: number) => string;
-  scaleDomain?: number[];
+  scale?: ScaleOptions;
   animationDuration: number;
   verticalOrientation: boolean;
   theme: 'light' | 'dark';
@@ -261,7 +278,6 @@ export default class Options {
       },
 
       scale: undefined,
-      scaleDomain: [],
 
       // Animation duration, in ms
       animationDuration: OPTIONS_DEFAULT_ANIMATION_DURATION,
@@ -313,6 +329,10 @@ export default class Options {
       set(options, key, get(this.preProcessors, key)(get(options, key)));
     });
 
+    if (typeof options.scale === 'undefined') {
+      this.initScale();
+    }
+
     options.x.domainVerticalLabelHeight = options.domain.label.height;
 
     // When the label is affecting the height
@@ -333,5 +353,15 @@ export default class Options {
       options.x.domainVerticalLabelHeight = 0;
       options.x.domainHorizontalLabelWidth = 0;
     }
+  }
+
+  initScale() {
+    this.options.scale = {
+      color: {
+        scheme: SCALE_BASE_COLOR_SCHEME,
+        type: SCALE_BASE_COLOR_TYPE,
+        domain: SCALE_BASE_COLOR_DOMAIN,
+      },
+    };
   }
 }

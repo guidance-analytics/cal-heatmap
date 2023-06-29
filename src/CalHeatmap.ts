@@ -20,8 +20,6 @@ import type { OptionsType } from './options/Options';
 
 import { ScrollDirection } from './constant';
 
-import 'd3-transition';
-
 export type Timestamp = number;
 export type DomainType =
   | 'year'

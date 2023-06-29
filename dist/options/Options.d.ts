@@ -52,6 +52,20 @@ export type DataOptions = {
     groupY: DataGroupType | ((values: (string | number | null)[]) => string | number | null);
     defaultValue: null | number | string;
 };
+type ScaleOptions = {
+    opacity?: {
+        domain: number[];
+        type?: string;
+        baseColor: string;
+    };
+    color?: {
+        domain: number[];
+        scheme?: string;
+        range?: string[];
+        interpolate?: any;
+        type?: string;
+    };
+};
 export type OptionsType = {
     itemSelector: string;
     range: number;
@@ -59,8 +73,7 @@ export type OptionsType = {
     subDomain: SubDomainOptions;
     date: DateOptions;
     data: DataOptions;
-    scale?: (input: number) => string;
-    scaleDomain?: number[];
+    scale?: ScaleOptions;
     animationDuration: number;
     verticalOrientation: boolean;
     theme: 'light' | 'dark';
@@ -89,5 +102,6 @@ export default class Options {
      */
     set(key: string, value: any): boolean;
     init(opts?: DeepPartial<OptionsType>): void;
+    initScale(): void;
 }
 export {};

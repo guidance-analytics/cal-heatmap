@@ -1,4 +1,5 @@
 import { select, create } from 'd3-selection';
+import { normalizedScale, applyScaleStyle } from '../scale';
 import { DEFAULT_SELECTOR as MAIN_SELECTOR } from '../calendar/CalendarPainter';
 import {
   // force line break from prettier
@@ -98,11 +99,12 @@ export default class LegendLite implements IPlugin {
 
   #buildLegend() {
     const node = create('svg');
+    const scale = normalizedScale(this.calendar.options.options.scale);
     const {
       width, height, gutter, includeBlank,
     } = this.options;
 
-    const localRange: Array<number | null> = [...(this.calendar.options.options.scaleDomain ?? [])];
+    const localRange = [...scale.range];
     if (includeBlank) {
       localRange.unshift(null);
     }
@@ -121,16 +123,16 @@ export default class LegendLite implements IPlugin {
       .join(
         (enter: any) => enter.append('rect').call((sc: any) =>
         // eslint-disable-next-line implicit-arrow-linebreak
-          this.#nodeAttrs(sc)),
+          this.#nodeAttrs(sc, scale)),
         (update: any) => update
           .selectAll('rect')
-          .call((sc: any) => this.#nodeAttrs(sc)),
+          .call((sc: any) => this.#nodeAttrs(sc, scale)),
       );
 
     return node;
   }
 
-  #nodeAttrs(selection: any) {
+  #nodeAttrs(selection: any, scale: any) {
     const {
       width, height, radius, gutter,
     } = this.options;
@@ -144,12 +146,7 @@ export default class LegendLite implements IPlugin {
       .attr('x', (_d: any, i: number) => i * (width + gutter))
       .attr('y', 0)
       .call((element: any) => {
-        element.style(
-          'fill',
-          (d: any) => (d.v !== undefined && d.v !== null ?
-            this.calendar.options.options.scale?.(d) ?? null :
-            null),
-        );
+        applyScaleStyle(element, scale, this.calendar.options.options.scale!);
       });
   }
 }

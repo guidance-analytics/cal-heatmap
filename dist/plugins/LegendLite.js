@@ -5,6 +5,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
 };
 var _LegendLite_instances, _LegendLite_buildLegend, _LegendLite_nodeAttrs;
 import { select, create } from 'd3-selection';
+import { normalizedScale, applyScaleStyle } from '../scale';
 import { DEFAULT_SELECTOR as MAIN_SELECTOR } from '../calendar/CalendarPainter';
 import { 
 // force line break from prettier
@@ -61,10 +62,10 @@ export default class LegendLite {
     }
 }
 _LegendLite_instances = new WeakSet(), _LegendLite_buildLegend = function _LegendLite_buildLegend() {
-    var _a;
     const node = create('svg');
+    const scale = normalizedScale(this.calendar.options.options.scale);
     const { width, height, gutter, includeBlank, } = this.options;
-    const localRange = [...((_a = this.calendar.options.options.scaleDomain) !== null && _a !== void 0 ? _a : [])];
+    const localRange = [...scale.range];
     if (includeBlank) {
         localRange.unshift(null);
     }
@@ -77,11 +78,11 @@ _LegendLite_instances = new WeakSet(), _LegendLite_buildLegend = function _Legen
         .data(localRange)
         .join((enter) => enter.append('rect').call((sc) => 
     // eslint-disable-next-line implicit-arrow-linebreak
-    __classPrivateFieldGet(this, _LegendLite_instances, "m", _LegendLite_nodeAttrs).call(this, sc)), (update) => update
+    __classPrivateFieldGet(this, _LegendLite_instances, "m", _LegendLite_nodeAttrs).call(this, sc, scale)), (update) => update
         .selectAll('rect')
-        .call((sc) => __classPrivateFieldGet(this, _LegendLite_instances, "m", _LegendLite_nodeAttrs).call(this, sc)));
+        .call((sc) => __classPrivateFieldGet(this, _LegendLite_instances, "m", _LegendLite_nodeAttrs).call(this, sc, scale)));
     return node;
-}, _LegendLite_nodeAttrs = function _LegendLite_nodeAttrs(selection) {
+}, _LegendLite_nodeAttrs = function _LegendLite_nodeAttrs(selection, scale) {
     const { width, height, radius, gutter, } = this.options;
     return selection
         .attr('width', width)
@@ -92,11 +93,6 @@ _LegendLite_instances = new WeakSet(), _LegendLite_buildLegend = function _Legen
         .attr('x', (_d, i) => i * (width + gutter))
         .attr('y', 0)
         .call((element) => {
-        element.style('fill', (d) => {
-            var _a, _b, _c;
-            return (d.v !== undefined && d.v !== null ?
-                (_c = (_b = (_a = this.calendar.options.options).scale) === null || _b === void 0 ? void 0 : _b.call(_a, d)) !== null && _c !== void 0 ? _c : null :
-                null);
-        });
+        applyScaleStyle(element, scale, this.calendar.options.options.scale);
     });
 };

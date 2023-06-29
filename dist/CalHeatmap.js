@@ -21,7 +21,6 @@ import PluginManager from './plugins/PluginManager';
 import VERSION from './version';
 import TemplateCollection from './TemplateCollection';
 import { ScrollDirection } from './constant';
-import 'd3-transition';
 class CalHeatmap {
     constructor() {
         // Default options
