@@ -72,7 +72,6 @@ export default class Tooltip {
                     `<span id="${DEFAULT_SELECTOR.slice(1)}-body"></span>`;
             this.root = document.body.appendChild(tooltipElem);
         }
-        this.root.setAttribute('data-theme', this.calendar.options.options.theme);
         this.popperInstance = createPopper(virtualElement, this.root, this.popperOptions);
         if (!this.listenerAttached) {
             event.on('mouseover', this.mouseOverCallback, this);

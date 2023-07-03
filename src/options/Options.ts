@@ -12,7 +12,6 @@ import {
   OPTIONS_DEFAULT_SUBDOMAIN_HEIGHT,
   OPTIONS_DEFAULT_SUBDOMAIN_GUTTER,
   OPTIONS_DEFAULT_SUBDOMAIN_RADIUS,
-  OPTIONS_DEFAULT_THEME,
   OPTIONS_DEFAULT_ANIMATION_DURATION,
   OPTIONS_DEFAULT_ITEM_SELECTOR,
   OPTIONS_DEFAULT_RANGE,
@@ -122,7 +121,6 @@ export type OptionsType = {
   scale?: ScaleOptions;
   animationDuration: number;
   verticalOrientation: boolean;
-  theme: 'light' | 'dark';
 };
 
 type InternalOptionsType = {
@@ -281,9 +279,6 @@ export default class Options {
 
       // Animation duration, in ms
       animationDuration: OPTIONS_DEFAULT_ANIMATION_DURATION,
-
-      // Theme mode: dark/light
-      theme: OPTIONS_DEFAULT_THEME,
 
       // Internally used options, do not edit not set
       x: {

@@ -76,7 +76,6 @@ export type OptionsType = {
     scale?: ScaleOptions;
     animationDuration: number;
     verticalOrientation: boolean;
-    theme: 'light' | 'dark';
 };
 type InternalOptionsType = {
     x: {
