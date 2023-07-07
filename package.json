@@ -94,7 +94,7 @@
     "Visualization"
   ],
   "files": [
-    "dist"
+    "./dist/"
   ],
   "config": {
     "commitizen": {
